@@ -24,19 +24,23 @@ class RegistrationViewController: UIViewController, UIPickerViewDelegate, UIPick
     let registrationSequeIdentifier = "registrationSeque"
     @IBOutlet weak var activeTextField: UITextField?
     let errorMessage = "Заполните все поля"
-   
-    @IBOutlet weak var emailTextField: UITextField!
+   @IBOutlet weak var emailTextField: UITextField!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        self.hideKeyboardWhenTappedAround()
-        self.setNotificationKeyboard()
+        hideKeyboardWhenTappedAround()
+        setNotificationKeyboard()
 
     }
-    
-    func setNotificationKeyboard ()  {
+        
+    func setNotificationKeyboard()  {
         NotificationCenter.default.addObserver(self, selector: #selector(keyboardWasShown(notification:)), name: .UIKeyboardWillShow, object: nil)
         NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillBeHidden(notification:)), name: .UIKeyboardWillHide, object: nil)
+    }
+    
+    deinit {
+        NotificationCenter.default.removeObserver(self)
     }
     
     func keyboardWasShown(notification: NSNotification)

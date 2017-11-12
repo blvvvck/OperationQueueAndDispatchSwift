@@ -16,7 +16,5 @@ class ContactsTableViewCell: UITableViewCell {
     func prepareCell(with contactModel: Contacts) {
         iconImageView.image = contactModel.image
         contactLabel.text = contactModel.contact
-        contactLabel.sizeToFit()
-        iconImageView.sizeToFit()
     }
 }

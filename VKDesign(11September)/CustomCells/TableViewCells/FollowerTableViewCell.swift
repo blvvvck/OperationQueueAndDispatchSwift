@@ -20,12 +20,8 @@ class FollowerTableViewCell: UITableViewCell {
         
         nameLabel.text = follower.name
         surnameLabel.text = follower.surname
-        nameLabel.sizeToFit()
-        surnameLabel.sizeToFit()
         onlineImageView.image = follower.online
         avatarImageView.image = follower.avatar
-        avatarImageView.sizeToFit()
-        onlineImageView.sizeToFit()
         avatarImageView.roundCorners( [.bottomLeft, .bottomRight, .topLeft, .topRight], radius: radiusRoundCorner)
         avatarImageView.clipsToBounds = true
     }

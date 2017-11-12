@@ -15,14 +15,16 @@ class LoginViewController: UIViewController {
     let loginSegueIdentifier = "loginSeque"
     @IBOutlet weak var errorLabel: UILabel!
     let errorMessage = "Заполните все поля"
+    let adminPassword = "admin"
+    let adminEmail = "admin"
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.hideKeyboardWhenTappedAround()
+        hideKeyboardWhenTappedAround()
     }
 
     @IBAction func loginButtonPressed(_ sender: Any) {
-        if (passwordTextField.text == "admin" && emailTextField.text == "admin") {
+        if (passwordTextField.text == adminPassword && emailTextField.text == adminEmail) {
             performSegue(withIdentifier: loginSegueIdentifier, sender: nil)
         } else if let user = UserRepository.sharedInstance.get() {
             if (passwordTextField.text == user.password && user.email == emailTextField.text) {

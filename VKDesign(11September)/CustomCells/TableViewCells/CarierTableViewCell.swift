@@ -18,8 +18,5 @@ class CarierTableViewCell: UITableViewCell {
         companyLabel.text = item.company
         locationAndPeriodLabel.text = item.locationAndPeriod
         positionLabel.text = item.position
-        companyLabel.sizeToFit()
-        locationAndPeriodLabel.sizeToFit()
-        positionLabel.sizeToFit()
     }
 }

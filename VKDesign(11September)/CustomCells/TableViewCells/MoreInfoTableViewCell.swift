@@ -15,9 +15,6 @@ class MoreInfoTableViewCell: UITableViewCell {
     
     func prepareCell(with moreInfoModel: MoreInfo) {
         titleLabel.text = moreInfoModel.title
-        countLabel.text = moreInfoModel.count
-        titleLabel.sizeToFit()
-        countLabel.sizeToFit()
-        
+        countLabel.text = moreInfoModel.count        
     }
 }

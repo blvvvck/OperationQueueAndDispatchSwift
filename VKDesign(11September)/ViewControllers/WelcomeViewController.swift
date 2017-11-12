@@ -10,17 +10,26 @@ import UIKit
 
 class WelcomeViewController: UIPageViewController, UIPageViewControllerDelegate, UIPageViewControllerDataSource {
     
+    let pageControlCurrentPage = 0
+    let pageControlXPostitoin: CGFloat = 0
+    let pageControlHeight: CGFloat = 50
+    let pageControlYPosition: CGFloat = UIScreen.main.bounds.maxY - 50
+    let pageControlWidth: CGFloat = UIScreen.main.bounds.width
+    let mainStoryboardName = "Main"
+    let firstPageViewControllerIdentifier = "sbRed"
+    let secondPageViewControllerIdentifier = "sbBlue"
+    
     lazy var orderedViewControllers: [UIViewController] = {
-        return [self.newVc(viewController: "sbRed"),
-                self.newVc(viewController: "sbBlue")]
+        return [self.newVc(viewController: firstPageViewControllerIdentifier),
+                self.newVc(viewController: secondPageViewControllerIdentifier)]
     }()
     
     var pageControl = UIPageControl()
     
     func configurePageControl() {
-        pageControl = UIPageControl(frame: CGRect(x: 0, y: UIScreen.main.bounds.maxY - 50, width: UIScreen.main.bounds.width, height: 50))
+        pageControl = UIPageControl(frame: CGRect(x: pageControlXPostitoin, y: pageControlYPosition, width: pageControlWidth, height: pageControlHeight))
         pageControl.numberOfPages = orderedViewControllers.count
-        pageControl.currentPage = 0
+        pageControl.currentPage = pageControlCurrentPage
         pageControl.tintColor = UIColor.black
         pageControl.pageIndicatorTintColor = UIColor.white
         pageControl.currentPageIndicatorTintColor = UIColor.black
@@ -37,7 +46,6 @@ class WelcomeViewController: UIPageViewController, UIPageViewControllerDelegate,
         
         guard previousIndex >= 0 else {
             return orderedViewControllers.last
-            //return nil
         }
         
         guard orderedViewControllers.count > previousIndex else {
@@ -51,7 +59,6 @@ class WelcomeViewController: UIPageViewController, UIPageViewControllerDelegate,
         
         guard let viewControllerIndex = orderedViewControllers.index(of: viewController) else {
             return orderedViewControllers.first
-            //return nil
         }
         
         let nextIndex = viewControllerIndex + 1
@@ -86,12 +93,11 @@ class WelcomeViewController: UIPageViewController, UIPageViewControllerDelegate,
     
     
     func newVc(viewController: String) -> UIViewController {
-        return UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: viewController)
+        return UIStoryboard(name: mainStoryboardName, bundle: nil).instantiateViewController(withIdentifier: viewController)
     }
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
     }
 }
 

@@ -33,7 +33,6 @@ class GiftsTableViewCell: UITableViewCell, UICollectionViewDelegate, UICollectio
     
     func prepareCell(with item: InformationViewModelGiftsItem) {
         giftsNumberLabel.text = item.giftNumbers
-        giftsNumberLabel.sizeToFit()
     }
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {

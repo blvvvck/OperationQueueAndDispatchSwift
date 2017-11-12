@@ -16,7 +16,5 @@ class EducationTableViewCell: UITableViewCell {
     func prepareCell(with educationalModel: EducationalEstablishments) {
         typeLabel.text = educationalModel.type
         nameLabel.text = educationalModel.name
-        typeLabel.sizeToFit()
-        nameLabel.sizeToFit()
     }
 }

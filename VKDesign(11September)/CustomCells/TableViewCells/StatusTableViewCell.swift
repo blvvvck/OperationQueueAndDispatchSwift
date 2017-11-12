@@ -13,6 +13,5 @@ class StatusTableViewCell: UITableViewCell {
     
     func prepateCell(with item: InformationViewModelStatusItem){
         statusLabel.text = item.status
-        statusLabel.sizeToFit()
     }
 }

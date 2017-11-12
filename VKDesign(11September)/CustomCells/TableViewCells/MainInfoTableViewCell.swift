@@ -15,7 +15,5 @@ class MainInfoTableViewCell: UITableViewCell {
     func prepareCell(with mainInfoModel: MainInfo) {
         subtitleLabel.text = mainInfoModel.info
         titleLabel.text = mainInfoModel.title
-        subtitleLabel.sizeToFit()
-        titleLabel.sizeToFit()
     }
 }
